@@ -82,3 +82,12 @@ It means that an installer can appear when a gameobject appears to the scene, fo
 
 ### Scriptable Ojbect Installer
 Very much like a ```MonoInstaller```, can drag and drop onto gameobjects into the Scriptable Object Installer fields. The values of the installer can be edited in the object inspector in Unity during runtime, so you can use it to fine tune values - for example damage or hp of enemies, while running and teting the game. 
+
+### Base Installers
+Exposed via a static method - NOT SURE WHAT THIS MEANS YET
+
+Scriptalbe Ojbect Installers are stored in Assets in Unity.
+
+MonoInstallers must be attached to a GameObject. Pro tip: attach it to a SceneContext GameObject in your scene, right click in the hierarchy list of your scene and select the Zenject option in the right click menu, this will reveal the SceneContext object. Here you can attach your MonoInstallers.
+
+MonoInstallers can also just be attached to a GameObject and then dragged into an Assets Folder -> creating a PreFab of the GameObject with the MonoInstaller -> thus you have a prefab of the MonoInstaller, allowing it to be reused.
