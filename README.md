@@ -95,5 +95,34 @@ MonoInstallers can also just be attached to a GameObject and then dragged into a
 #### MonoInstaller as a Prefab
 When would you want a prefab MonoInstaller? An example is this: Let's say you have a PlayerModel and you want it to be initiated in every scene. You could use a MonoInstaller to let the Container know what to inject into the model. Then you could use this MonoInstaller as a prefab to use it in every Scene. Furthermore you can change certain values depending on the scenes by adjusting the prefab that you put into the scene. Maybe your player has more health in one scene than another?
 
-#### PrefabInstaller
+#### Prefab Installer
 Alternatively you can add your Prefab of the MonoInstaller to the "PreFab Installer" field in the SceneContext Script Zenject Object. This allows it to look tidy, so you know which installer is in fact a prefab. Unfortunately you cannot change specific values for certain scenes when doing it this way. 
+
+#### Resources folder + MonoInstaller
+You can also put a MonoInstaller into the resources folder. This is done by creating a GameObject, adding the MonoInstaller to it. Then instead of adding to the Assets folder, turning into a Prefab, you create a Resources folder and add it to this instead.
+
+This allows you to reference it in a different installer by calling the MonoInstaller class (which is now in the resources folder) in your other installer:
+
+```
+We need two installers: 
+
+1. The installer in the Resource folder:
+
+public FooResourceInstaller : MonoInstaller<FooResourceInstaller>
+    {
+        Container.Bind<IFoo>().ToResult<Foo>();
+    }
+    
+2. The other installer which wants to reuse the resource folder's monoinstaller
+
+public FooAppInstaller : MonoInstaller
+    {
+       FooResourceInstaller.InstallFromResource("FooResource Installer", Container);
+    }
+
+```
+
+We have to add the Container, and we have to use the "InstallFromResource("Foo Installer", Container)".
+The first installer in the example passes itself into the MonoInstaller, this is a requirement when using resourceinstallers.
+
+Im not entirely sure when or how you are supposed to use MonoInstaller<Foo> in general, because you can use it more often.
