@@ -92,4 +92,8 @@ MonoInstallers must be attached to a GameObject. Pro tip: attach it to a SceneCo
 
 MonoInstallers can also just be attached to a GameObject and then dragged into an Assets Folder -> creating a PreFab of the GameObject with the MonoInstaller -> thus you have a prefab of the MonoInstaller, allowing it to be reused.
 
+#### MonoInstaller as a Prefab
 When would you want a prefab MonoInstaller? An example is this: Let's say you have a PlayerModel and you want it to be initiated in every scene. You could use a MonoInstaller to let the Container know what to inject into the model. Then you could use this MonoInstaller as a prefab to use it in every Scene. Furthermore you can change certain values depending on the scenes by adjusting the prefab that you put into the scene. Maybe your player has more health in one scene than another?
+
+#### PrefabInstaller
+Alternatively you can add your Prefab of the MonoInstaller to the "PreFab Installer" field in the SceneContext Script Zenject Object. This allows it to look tidy, so you know which installer is in fact a prefab. Unfortunately you cannot change specific values for certain scenes when doing it this way. 
