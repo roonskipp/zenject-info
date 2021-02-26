@@ -66,3 +66,19 @@ public class FooInstaller : MonoInstaller
 ```
 
 There we go, now Zenject can create both.
+
+
+## Installers
+There are different types of installers.
+
+### MonoInstaller
+The most common is ```MonoInstaller```, like in the example above.
+
+These are like ```MonoBehaviour``` -> They can be attached to GameObjects.
+
+Why is that good?
+
+It means that an installer can appear when a gameobject appears to the scene, for example upon loading a new scene. This has benefits because it means we won't have to run all our installers at the initial load of the game. It also means it will disappear when the scene is unloaded and the gameobjects disappear from the game.
+
+### Scriptable Ojbect Installer
+Very much like a ```MonoInstaller```, can drag and drop onto gameobjects into the Scriptable Object Installer fields. The values of the installer can be edited in the object inspector in Unity during runtime, so you can use it to fine tune values - for example damage or hp of enemies, while running and teting the game. 
