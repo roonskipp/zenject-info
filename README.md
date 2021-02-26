@@ -29,7 +29,7 @@ The ```.AsSingle()``` means that it is made as a singleton (a design pattern).
 ## Container and bindings
 We already looked at the container, and that it can have bindings.
 One important thing that was not mentioned is when your class in the binding has dependencies.
-Let's look at an example: 'Container.Bind<Foo>().AsSingle();' -> in this case we are talking about the class 'Foo', it has some dependency.
+Let's look at an example: ```Container.Bind<Foo>().AsSingle();``` -> in this case we are talking about the class 'Foo', it has some dependency.
 
 The FooClass:
 ```
