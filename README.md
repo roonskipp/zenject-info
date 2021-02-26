@@ -91,3 +91,5 @@ Scriptalbe Ojbect Installers are stored in Assets in Unity.
 MonoInstallers must be attached to a GameObject. Pro tip: attach it to a SceneContext GameObject in your scene, right click in the hierarchy list of your scene and select the Zenject option in the right click menu, this will reveal the SceneContext object. Here you can attach your MonoInstallers.
 
 MonoInstallers can also just be attached to a GameObject and then dragged into an Assets Folder -> creating a PreFab of the GameObject with the MonoInstaller -> thus you have a prefab of the MonoInstaller, allowing it to be reused.
+
+When would you want a prefab MonoInstaller? An example is this: Let's say you have a PlayerModel and you want it to be initiated in every scene. You could use a MonoInstaller to let the Container know what to inject into the model. Then you could use this MonoInstaller as a prefab to use it in every Scene. Furthermore you can change certain values depending on the scenes by adjusting the prefab that you put into the scene. Maybe your player has more health in one scene than another?
